@@ -1,10 +1,10 @@
 package flv
 
 import (
-	"errors"
-	"flvParser/bitbuffer"
-	"fmt"
 	"encoding/hex"
+	"errors"
+	"fmt"
+	"go-flv/bitbuffer"
 )
 
 type FlvHeader struct {
@@ -82,7 +82,7 @@ func (header *FlvHeader) Dump() {
 	fmt.Printf("SignatureF:		%c\n", header.SignatureF)
 	fmt.Printf("SignatureL:		%c\n", header.SignatureL)
 	fmt.Printf("SignatureV:		%c\n", header.SignatureV)
-	fmt.Printf("Version:			0x%x\n", header.Version)
+	fmt.Printf("Version:	    0x%x\n", header.Version)
 	fmt.Printf("TypeFlagsAudio:	0x%x\n", header.TypeFlagsAudio)
 	fmt.Printf("TypeFlagsVideo:	0x%x\n", header.TypeFlagsVideo)
 	fmt.Printf("DataOffset:		0x%x\n", header.DataOffset)

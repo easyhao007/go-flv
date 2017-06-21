@@ -1,30 +1,30 @@
 package main
 
 import (
-	"fmt"
-	"flvParser/flv"
 	"flag"
+	"fmt"
+	"go-flv/flv"
 	"io/ioutil"
 )
 
 func main() {
-	filename := flag.String("f" , "" , "被解析的文件的路径")
+	filename := flag.String("f", "", "被解析的文件的路径")
 	flag.Parse()
 
-	if *filename == ""{
+	if *filename == "" {
 		fmt.Println("usage: flvParse file path")
 		return
 	}
 
-	buf , err := ioutil.ReadFile(*filename)
-	if err != nil{
+	buf, err := ioutil.ReadFile(*filename)
+	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
 
 	flvHeader := new(flv.FlvHeader)
 	err = flvHeader.Parse(buf[0:9])
-	if err != nil{
+	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
